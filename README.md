@@ -14,6 +14,8 @@
 ## Introduction
 This personal health expert website is a demo/learning project that allows users to get a personalized chat assistant that helps each user, by getting advice that is based on their preferences and information. The web application is built using Blazor,C#,.Net 7 and integrates with OpenAI's API to provide advanced natural language processing features for interactive communication with the personal health expert.
 
+Note: This project is developed by a beginner and intended as a learning/demo project, so feedback and constructive criticism are welcome.
+
 ## Features
 * Personalized chatbot for health-related questions and advice.
 * Personalized meal planning based on user preferences
@@ -35,13 +37,11 @@ To run the Personal Health Expert web application locally on your machine, follo
   1. Clone the repository:
   2. Navigate to the project directory: 'cd Health_expert"
   3. Install the required dependencies: 'dotnet restore
-  4. In the appsettings.json, insert your OpenAI API key
+  4. In the appsettings.json, change the api key to your own OpenAI API key
   5. Build the project: 'dotnet build'
   6. Run the application:'dotnet run'
 
   The web application should now be available in your web browser
-
-
 
 
 ## Usage
