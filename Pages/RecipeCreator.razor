@@ -1,0 +1,42 @@
+﻿@page "/RecipeCreator"
+@using Health_expert_B.Pages
+@inject NavigationManager NavManager
+
+<PageTitle>Recipes</PageTitle>
+
+<div class="containter d-flex flex-column vh-100">
+
+    <div class="text-right">
+        <h3>Welcome to Recipes, you all around stop for recipes</h3>
+        <p>Select your perefernce below and get the recipes you are looking for</p>
+
+        <form method="post" @onsubmit="SubmitForm">
+        <div class="p-4">
+            <div class="text-white h5 rounded-pill bg-primary d-inline-block px-3 py-2">What recipe do you need?</div>
+
+            <div class="input-group ps-2 pb-2">
+                <span class="input-group-text"></span>
+                <textarea class="form-control" @bind="@SelectedRecipe"  aria-label="Other Factors"></textarea>
+            </div>
+        </div>
+
+        <div class="p-4">
+            <label for="portions" class="form-label text-white h5 rounded-pill bg-primary d-inline-block px-3 py-2">Portions:</label>
+            <select name="portions" @bind= "@SelectedPortions" id="portions" class="form-select pl-3 "  required>
+                <option value="">Select portion size</option>
+                <option value="1 portion">1</option>
+                <option value="2 portions">2</option>
+                <option value="3 portions">3</option>
+                <option value="4 portions">4</option>
+                <option value="5 portions">5</option>
+                <option value="6 portions">6</option>
+            </select>
+        </div>
+        
+
+        <div class="p-4">
+            <button type="submit"  class="mt-5 text-white btn btn-primary btn-lg rounded-5" >Get recipe</button>
+        </div>
+        </form>
+    </div>
+</div>

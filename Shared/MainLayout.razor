@@ -1,0 +1,75 @@
+﻿@inherits LayoutComponentBase
+@using Health_expert_B.Data;
+@using Health_expert_B.Services
+@using Health_expert_B.Models
+
+@code{
+    [Inject]
+    UserInfoService User { get; set; }
+    protected override Task OnInitializedAsync()
+    {
+        UserInfo userInfo = User.User;
+        return base.OnInitializedAsync();
+    }
+
+    protected bool SomeT()
+    {
+        bool returnBool = false;
+        UserInfo userInfo = User.User;
+        if (userInfo == null)
+        {
+            returnBool = false;
+        }
+        else
+        {
+            returnBool = true;
+        }
+        return returnBool;     
+    }
+}
+
+
+@if (SomeT())
+{
+    <div class="page">
+
+
+@*        <div class="sidebar" style="@IconMenuCssClass">
+            <NavMenu ShowIconMenu="ToggleIconMenu" />
+        </div>
+        <main>
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>*@
+        <NavMenu />
+
+        <main class="container">
+            @Body
+        </main>
+
+
+
+    </div>
+}
+
+@if (!SomeT())
+{
+    <article class="content px-4">
+        @Body
+    </article>
+}
+
+<PageTitle>Health Expert</PageTitle>
+
+
+
+@code{
+    private bool _iconMenuActive { get; set; }
+    private string? IconMenuCssClass => _iconMenuActive ? "width: 80px;" : null;
+
+    protected void ToggleIconMenu(bool iconMenuActive)
+    {
+        _iconMenuActive = iconMenuActive;
+    }
+}

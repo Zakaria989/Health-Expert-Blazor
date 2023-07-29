@@ -1,0 +1,8 @@
+/home/zakaria/Documents/Csharp_code/Health_expert_B/obj/Debug/net7.0/Health_Expert.csproj.AssemblyReference.cache
+/home/zakaria/Documents/Csharp_code/Health_expert_B/obj/Debug/net7.0/Health_Expert.GeneratedMSBuildEditorConfig.editorconfig
+/home/zakaria/Documents/Csharp_code/Health_expert_B/obj/Debug/net7.0/Health_Expert.AssemblyInfoInputs.cache
+/home/zakaria/Documents/Csharp_code/Health_expert_B/obj/Debug/net7.0/Health_Expert.AssemblyInfo.cs
+/home/zakaria/Documents/Csharp_code/Health_expert_B/obj/Debug/net7.0/Health_Expert.csproj.CoreCompileInputs.cache
+/home/zakaria/Documents/Csharp_code/Health_expert_B/obj/Debug/net7.0/Health_Expert.MvcApplicationPartsAssemblyInfo.cache
+/home/zakaria/Documents/Csharp_code/Health_expert_B/obj/Debug/net7.0/Health_Expert.RazorAssemblyInfo.cache
+/home/zakaria/Documents/Csharp_code/Health_expert_B/obj/Debug/net7.0/Health_Expert.RazorAssemblyInfo.cs

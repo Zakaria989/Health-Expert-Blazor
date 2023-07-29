@@ -1,0 +1,86 @@
+﻿@page "/WorkoutPlanner"
+@inject NavigationManager NavManager
+<PageTitle>Workout planner</PageTitle>
+
+<div class="containter d-flex flex-column vh-100">
+
+    <div class="text-right">
+        <h3>Welcome to your workout planner</h3>
+        <p>Select your preference below and get a workout routine</p>
+    </div>
+
+
+    <div class="ps-3 mt-4 mb-4">
+        <label for="SnackAmount" class="form-label text-white h5 rounded-pill bg-primary d-inline-block px-3 py-2">Workout days:</label>
+        <div class="h6 pb-2">How many days per week do you plan to work out?</div>
+        <select name="portions" @onchange= "@(e => UpdateSelectedWorkoutDaysPreference(e))" id="WorktoutDays" class="form-select pl-3 "  required>
+            <option value="">Select workout intensity</option>
+            <option value="1 day">1 day</option>
+            <option value="2 days<">2 days</option>
+            <option value="3 days">3 days</option>
+            <option value="4 days">4 days</option>
+            <option value="5 days">5 days</option>
+            <option value="6 days">6 days</option>
+            <option value="7 days">7 days</option>
+        </select>
+    </div>
+
+    <div class="ps-3 mt-4 mb-4">
+        <label for="SnackAmount" class="form-label text-white h5 rounded-pill bg-primary d-inline-block px-3 py-2">Workout intensity:</label>
+        <div class="h6 pb-2">What intensity level do you prefer for your workouts?</div>
+        <select name="portions" @onchange= "@(e => UpdateSelectedWorkoutIntensityPreference(e))" id="Intensity" class="form-select pl-3 "  required>
+            <option value="">Select workout intensity</option>
+            <option value="Low intensity">Low intensity</option>
+            <option value="Moderate intensity<">Moderate intensity</option>
+            <option value="High intensity">High intensity</option>
+        </select>
+    </div>
+
+
+
+
+   <div class="ps-3 mt-4 mb-4">
+        <label for="SnackAmount" class="form-label text-white h5 rounded-pill bg-primary d-inline-block px-3 py-2">Workout duration:</label>
+        <div class="h6 pb-2">What long do you like your workouts to?</div>
+        <select name="portions" @onchange= "@(e => UpdateSelectedWorkoutDurationPreference(e))" id="Duration" class="form-select pl-3 "  required>
+            <option value="">Select workout duration</option>
+            <option value="Low intensity">30 minuets</option>
+            <option value="Moderate intensity<">45 minuets</option>
+            <option value="High intensity">60 minuets</option>
+            <option value="High intensity">70+ minuets</option>
+        </select>
+    </div>
+
+
+
+   <div class="ps-3 mt-4 mb-4">
+        <label for="SnackAmount" class="form-label text-white h5 rounded-pill bg-primary d-inline-block px-3 py-2">Strength training:</label>
+        <div class="h6 pb-2">Choose the type of strength training you prefer</div>
+        <select name="portions" @onchange= "@(e => UpdateSelectedStrengthPreference(e))" id="Strength" class="form-select pl-3 "  required>
+            <option value="">Select workout duration</option>
+            <option value="Low intensity">Bodyweight exercises</option>
+            <option value="Moderate intensity<">Weightlifting</option>
+            <option value="High intensity">Resistance bands</option>
+            <option value="High intensity">Yoga</option>
+        </select>
+    </div>
+
+
+
+
+    <div class="p-4">
+        <div class="text-white h4 rounded-pill bg-primary d-inline-block px-3 py-2">Any other important factors to consider for your meal plan?</div>
+
+        <div class="input-group ps-2 pb-2">
+            <span class="input-group-text"></span>
+            <textarea class="form-control" @oninput="UpdateOtherFactors" aria-label="Other Factors"></textarea>
+        </div>
+
+        <button type="submit" class="mt-5 text-white btn btn-primary btn-lg rounded-5" @onclick="SubmitForm">Get plan</button>
+
+    </div>
+
+
+
+
+</div>

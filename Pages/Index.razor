@@ -1,0 +1,48 @@
+﻿@page "/"
+@using Health_expert_B.Pages
+@inject NavigationManager NavManager
+
+
+<div class="container">
+<form method="post" asp-page="Index" class="container">
+    <div class="p-2 text-center bg-body-tertiary rounded-3" id="home">
+
+            <div class="main_text mt-4 jumbotron" >
+                <h3>Welcome to this demo of a personal health expert</h3>
+                <hr class="my-4">
+                <div class="d-grid gap-2 col-6 mx-auto pt-5 pb-5">
+                <button type="button" class="btn btn-primary btn-lg rounded-pill" @onclick="GetStarted">Get Started</button>
+                </div>
+
+            </div>
+            <br class="p-5 pb-5 mb-5" />
+
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+@code {
+    private void GetStarted()
+    {
+        NavManager.NavigateTo("/Register");
+    }
+
+}

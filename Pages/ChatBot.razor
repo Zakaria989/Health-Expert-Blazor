@@ -1,0 +1,56 @@
+﻿@page "/ChatBot"
+@using Health_expert_B.Data
+
+<PageTitle>Chat bot</PageTitle>
+
+<div class="container-fluid d-flex flex-column vh-100">
+    @if (Messages.Count == 0)
+    {
+        <div class="text-center mt-3">
+            <p>I am your personal health assistant, ask away!</p>
+        </div>
+    }
+    <div class="flex-grow-1 messages container-class" @ref="messages">
+        @foreach (var message in Messages)
+        {
+            <div class="row p-3 ">
+                <div class="col-1 d-flex align-items-center justify-content-center ">
+                    <div class="rounded-circle bg-dark-subtle text-center " style="width: 50px; height: 50px;">
+                        <span class="bi fs-2 @(message.IsUser ? "bi-person-fill" : "bi-robot")"></span>
+                    </div>
+                </div>
+                <div class="col-11">
+                    <div class= " p-3 shadow-sm @(message.IsUser ? "bg-primary  text-white question " : "text-bg-secondary  response text-break")">
+                        @if (message.IsUser)
+                        {
+                            @message.content
+                        }
+                        else
+                        {
+                            @((MarkupString)message.content)
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="sticky-bottom w-100 p-3 rounded mx-auto" >
+        @if (_isSendingMessage)
+        {
+            <div class="text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        }
+        <div class="input-group" >
+            <button class="btn btn-primary" @onclick="ClearConverstions">
+                <span class="bi bi-eraser"></span>
+            </button>
+            <textarea rows="2" @ref="textAreaRef"class="form-control" placeholder="Ask your question..." @bind-value="_userQuestion"
+            @bind-value:event="oninput" @onkeypress="HandleKeyPress" disabled="@_isSendingMessage"></textarea>
+        </div>
+        
+    </div>
+</div>

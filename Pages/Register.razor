@@ -1,0 +1,54 @@
+﻿@page "/Register"
+@using Health_expert_B.Pages
+@inject NavigationManager NavManager
+
+<PageTitle>User Information</PageTitle>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="text-center">
+                @if (!string.IsNullOrEmpty(userInfo.errorMessage))
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @userInfo.errorMessage
+                    </div>
+                }
+                <h3 class="display-6 mb-5">Please provide your information below to receive personalized plans.</h3>
+
+                <form method="post" @onsubmit="SubmitForm">
+                    <div class="mb-3">
+                        <label for="dropDownSex" class="form-label">Select Gender:</label>
+                        <select name="dropDownSex" id="UserSex" class="form-select" @bind="@userInfo.Sex" required>
+                            <option value="Male" selected>Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Undefined">Undefined</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">Full Name:</label>
+                        <input type="text" id="UserName" name="UserName" class="form-control" @bind="@userInfo.FullName" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="birthDate" class="form-label">Birth Date:</label>
+                        <input type="date" id="UserBirthDate" name="UserBirthDate" class="form-control" @bind="@userInfo.BirthDate" placeholder="dd.mm.yyyy" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="weight" class="form-label">Weight:</label>
+                        <input type="number" id="UserWeight" name="UserWeight" class="form-control" @bind="@userInfo.Weight" placeholder="Kg" required min = "30" max = "200">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="height" class="form-label">Height:</label>
+                        <input type="number" id="UserHeight" name="UserHeight" class="form-control" @bind="@userInfo.Height" placeholder="cm" required min ="130" max = "272">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

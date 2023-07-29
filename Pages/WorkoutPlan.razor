@@ -1,0 +1,22 @@
+﻿@page "/WorkoutPlan"
+
+<div class="containter d-flex flex-column vh-100">
+
+
+    <div class="p-3">
+        <div class="text-white h4 rounded-pill bg-primary d-inline-block px-3 py-2">Here is your personalized mealplan:</div>
+        <div class="form-floating">
+            @if (_isSendingMessage)
+            {
+                <div class="d-flex align-items-center">
+                    <strong>Creating a personalized workout plan...</strong>
+                    <div class="spinner-border ms-auto text-primary" aria-hidden="true" role="status">
+                    </div>
+                </div>
+            }
+        </div>
+        <textarea class="form-control main-text" id="floatingTextarea2" value="@WorkoutPlanByAssistant" style="height: 800px; background-color: #fff;" readonly></textarea>
+        <button type="submit" @ref="textInputRef"  class="textInputRef mt-3 btn-primary btn btn-Danger btn-lg rounded-5" @onclick="NavigateToAnotherPage">Get a new plan</button>
+    </div>
+
+</div>

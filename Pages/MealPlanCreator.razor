@@ -1,0 +1,130 @@
+﻿@page "/MealPlanner"
+@using Health_expert_B.Pages
+@inject NavigationManager NavManager
+
+<PageTitle>Mealplanner</PageTitle>
+
+<div class="container-fluid d-flex flex-column vh-100">
+
+    <div class="text-right">
+        <h3>Welcome to meal planner</h3>
+        <p>Select your preference below and get a personalized meal plan</p>
+    </div>
+
+    <div class="p-4">
+        <div class="text-white h5 rounded-pill bg-primary d-inline-block px-3 py-2">Food Preference</div>
+        <div class="h6 pb-2">What diet do you prefer?</div>
+
+        <div class="row ps-3">
+            <div class="col-sm-6 col-lg-6">
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e => {UpdateSelectedFoodPreference(e,"Vegan");})" id="veganCheckBox" value="Vegan">
+                    <label class="form-check-label" for="veganCheckBox">Vegan</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e => {UpdateSelectedFoodPreference(e,"Pescitarian");})" id="pescitarianCheckBox" value="Pescitarian">
+                    <label class="form-check-label" for="pescitarianCheckBox">Pescitarian</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e => {UpdateSelectedFoodPreference(e,"Keto");})" id="ketoCheckBox" value="Keto">
+                    <label class="form-check-label" for="ketoCheckBox">Keto</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e => {UpdateSelectedFoodPreference(e,"Vegetarian");})" id="vegetarianCheckBox" value="Vegetarian">
+                    <label class="form-check-label" for="vegetarianCheckBox">Vegetarian</label>
+                </div>
+
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e => {UpdateSelectedFoodPreference(e,"Flexitarian");})" id="flexitarianCheckBox" value="Flexitarian">
+                    <label class="form-check-label" for="flexitarianCheckBox">Flexitarian</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e => UpdateSelectedFoodPreference(e,"Mediterranean"))" id="mediterraneanCheckBox" value="Mediterranean">
+                    <label class="form-check-label" for="mediterraneanCheckBox">Mediterranean</label>
+                </div>
+
+
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e => UpdateSelectedFoodPreference(e, "Paleolithic"))" id="paleoCheckBox" value="Paleolithic">
+                    <label class="form-check-label" for="paleoCheckBox">Paleolithic (Paleo)</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e=> UpdateSelectedFoodPreference(e,"Whole30"))" id="whole30CheckBox" value="Whole30">
+                    <label class="form-check-label" for="whole30CheckBox">Whole30</label>
+                </div>
+
+
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e => UpdateSelectedFoodPreference(e, "Gluten-free"))" id="glutenFreeCheckBox" value="Gluten-free">
+                    <label class="form-check-label" for="glutenFreeCheckBox">Gluten-free</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e=> UpdateSelectedFoodPreference(e,"Dairy-free"))" id="dairyFreeCheckBox" value="Dairy-free">
+                    <label class="form-check-label" for="dairyFreeCheckBox">Dairy-free</label>
+                </div>
+
+
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e=> UpdateSelectedFoodPreference(e,"Low-Carb"))" id="lowCarbCheckBox" value="Low-carb">
+                    <label class="form-check-label" for="lowCarbCheckBox">Low-carb</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" @onchange="@(e => UpdateSelectedFoodPreference(e,"Low-Fat"))" id="lowFatCheckBox" value="Low-fat">
+                    <label class="form-check-label" for="lowFatCheckBox">Low-fat</label>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+        <div class="ps-3 mt-4 mb-4">
+            <label for="SnackAmount" class="form-label text-white h5 rounded-pill bg-primary d-inline-block px-3 py-2">Snacks each day:</label>
+            <div class="h6 pb-2">How many snacks do you want a day?</div>
+            <select name="portions" @onchange= "@(e => UpdateSelectedSnacksPreference (e))" id="portions" class="form-select pl-3 "  required>
+                <option value="">Select snack amount</option>
+                <option value="None">None</option>
+                <option value="1-2 Snacks">1-2 Snacks</option>
+                <option value="2-3 Snacks">2-3 Snacks</option>
+                <option value="3+ Snacks">3+ Snacks</option>
+            </select>
+        </div>
+
+
+        <div class="ps-3 mb-4 mt-4">
+            <label for="MealAmount" class="form-label text-white h5 rounded-pill bg-primary d-inline-block px-3 py-2">Meals each day:</label>
+            <div class="h6 pb-2">How many meals do you want each day?</div>
+            <select name="portions" @onchange= "@(e => UpdateSelectedMealPreference (e))" id="portions" class="form-select pl-3 "  required>
+                <option value="">Select meal amount</option>
+                <option value="1 Meal">1 Meal</option>
+                <option value="2 Meals">2 Meals</option>
+                <option value="3 Meals">3 Meals</option>
+                <option value="4 Meals">4 Meals</option>
+            </select>
+        </div>
+
+    <div class="p-4">
+        <div class="text-white h4 rounded-pill bg-primary d-inline-block px-3 py-2">Other factors</div>
+        <div class="h6 pb-2">Any other important factors to consider for your meal plan?</div>
+        <div class="input-group ps-2 pb-1">
+            <span class="input-group-text"></span>
+            <textarea class="form-control" @oninput="UpdateOtherFactors" aria-label="Other Factors"></textarea>
+        </div>
+
+        <button type="submit" class="mt-5 text-white btn btn-primary btn-lg rounded-5" @onclick="SubmitForm">Get plan</button>
+
+    </div>
+</div>
